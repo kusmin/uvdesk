@@ -19,8 +19,12 @@ RUN a2enmod rewrite
 # Instalar Composer globalmente
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-# Definir o diretório de trabalho
-WORKDIR /var/www/html
+# Definir o diretório de trabalho temporário
+WORKDIR /var/www
 
 # Instalar UVdesk via Composer
 RUN composer create-project uvdesk/community-skeleton helpdesk-project
+
+# Mover os arquivos para o diretório correto
+RUN mv helpdesk-project/* /var/www/html/ \
+  && mv helpdesk-project/.[!.]* /var/www/html/
