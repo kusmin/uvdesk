@@ -1,0 +1,10 @@
+services:
+- type: docker
+  name: uvdesk-service
+  env: docker
+  dockerfile: path/to/your/Dockerfile
+  ports:
+  - 8080:80
+  envVars:
+  - key: DATABASE_URL
+    value: postgres://zammad:ZTokwQ6Wpr2qRGunMXi6BOt0usktF3Qt@dpg-cjqs2861208c73ems4fg-a/zammad_yvm6
