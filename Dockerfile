@@ -27,4 +27,5 @@ RUN composer create-project uvdesk/community-skeleton helpdesk-project
 
 # Mover os arquivos para o diretório correto
 RUN mv helpdesk-project/* /var/www/html/ \
-  && mv helpdesk-project/.[!.]* /var/www/html/
+  && mv helpdesk-project/.[!.]* /var/www/html/ \
+  && chown -R www-data:www-data /var/www/html
